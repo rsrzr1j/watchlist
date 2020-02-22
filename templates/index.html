@@ -2,18 +2,25 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>{{ name }}'s Watchlist</title>
+	<title>{{ user.name }}'s Watchlist</title>
+	<link rel="icon" href="{{ url_for('static',filename='images/favicon.png')}}">
+	<link rel="stylesheet" hrel="{{url_for('static',filename='style.css')}}" type="text/css">
 </head>
 <body>
-	<h2>{{ name }}'s Watchlsit</h2>
+	<h2>
+	<img alt="berry" class="berry" src="{{url_for('static',filename='images/berry.png')}}">
+	{{ user.name }}'s Watchlist
+	</h2>
 	{# 使用length 过滤去获取movies变量的长度 #}
 	<p>{{ movies|length }} Titles</p>
 	<ul>
+	<ul class= "movie-list">
 		{% for movie in movies %} {#迭代movie变量#}
 		<li>{{ movie.title }} - {{ movie.year }}</li>
 		{#等同于movie['title'] #}
 		{% endfor %} {# 使用endfor 结束for循环 #}
 	</ul>
+	<img alt="debian" class="debian" src="{{url_for('static',filename='images/debian.png')}}">
 	<footer>
 		<small>&copy; 2018 <a href="http://helloflask.com/tutorial">HelloFlask</a></small>
 	</footer>
