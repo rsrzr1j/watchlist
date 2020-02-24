@@ -93,7 +93,7 @@ def admin(username,password):
 	db.create_all()
 	user=User.query.first()
 	if user is not None:
-		click.echo('Updating user.')
+		click.echo('Updating user...')
 		user.username=username
 		user.set_password(password)
 	else:
@@ -149,7 +149,7 @@ def index():
 		movie=Movie(title=title,year=year)#创建记录
 		db.session.add(movie) #添加到数据库会话
 		db.session.commit()#提交数据库会话
-		flash('Iterm created.')#显示成功创建的提示
+		flash('Item created.')#显示成功创建的提示
 		return redirect(url_for('index'))
 	user=User.query.first() #读取用户记录
 	movies=Movie.query.all() #读取所有电影记录
